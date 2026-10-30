@@ -1,0 +1,100 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="640" viewBox="0 0 1280 640">
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#1b1d26"/>
+    <stop offset="1" stop-color="#121318"/>
+  </linearGradient>
+  <radialGradient id="glow" cx="0.5" cy="0.5" r="0.5">
+    <stop offset="0" stop-color="#ffe9b8" stop-opacity="0.35"/>
+    <stop offset="1" stop-color="#ffe9b8" stop-opacity="0"/>
+  </radialGradient>
+  <radialGradient id="shadow" cx="0.5" cy="0.5" r="0.5">
+    <stop offset="0" stop-color="#000" stop-opacity="0.55"/>
+    <stop offset="1" stop-color="#000" stop-opacity="0"/>
+  </radialGradient>
+  <pattern id="dots" width="16" height="16" patternUnits="userSpaceOnUse">
+    <circle cx="8" cy="8" r="1.6" fill="#cfc4ae"/>
+  </pattern>
+  <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+    <path d="M0,0 L10,5 L0,10 z" fill="#3b6fd8"/>
+  </marker>
+</defs>
+<rect width="1280" height="640" fill="url(#bg)"/>
+
+<ellipse cx="925" cy="442" rx="330" ry="120" fill="url(#shadow)"/>
+<polygon points="604.6,390.0 925.0,575.0 925.0,591.6 604.6,406.6" fill="#b99f74" />
+<polygon points="1245.4,390.0 925.0,575.0 925.0,591.6 1245.4,406.6" fill="#a08660" />
+<polygon points="604.6,390.0 604.6,219.8 595.0,214.2 595.0,401.1 604.6,406.6" fill="#b99f74" />
+<polygon points="1245.4,390.0 1245.4,219.8 1255.0,214.2 1255.0,401.1 1245.4,406.6" fill="#a08660" />
+<polygon points="925.0,205.0 604.6,390.0 604.6,219.8 925.0,34.8" fill="#f3ece0" />
+<polygon points="925.0,205.0 1245.4,390.0 1245.4,219.8 925.0,34.8" fill="#e6dccb" />
+<g transform="matrix(-1.0013 0.5781 0.0000 1.1562 925.0 34.8)" opacity="0.7"><rect width="320" height="147.2" fill="url(#dots)"/></g>
+<g transform="matrix(1.0013 0.5781 0.0000 1.1562 925.0 34.8)" opacity="0.7"><rect width="320" height="147.2" fill="url(#dots)"/></g>
+<polygon points="925.0,34.8 604.6,219.8 595.0,214.2 925.0,23.7 1255.0,214.2 1245.4,219.8" fill="#d6c3a0" />
+<polygon points="925.0,205.0 1245.4,390.0 925.0,575.0 604.6,390.0" fill="#ebe3d4" />
+<g transform="matrix(1.0013 0.5781 -1.0013 0.5781 925.0 205.0)" opacity="0.55"><rect width="320" height="320" fill="url(#dots)"/></g>
+<ellipse cx="925" cy="350" rx="300" ry="190" fill="url(#glow)"/>
+<polygon points="697.5,354.9 893.0,467.7 893.0,452.2 697.5,339.3" fill="#d9ccb3" />
+<polygon points="1117.3,338.2 893.0,467.7 893.0,452.2 1117.3,322.7" fill="#c8b998" />
+<polygon points="921.8,209.8 1117.3,322.7 893.0,452.2 697.5,339.3" fill="#f7f2e8" stroke="#c9bba2" stroke-width="1"/>
+<g transform="matrix(1.0013 0.5781 0.0000 1.1562 705.5 343.9)"><text x="0" y="9.9" font-family="ui-monospace, SF Mono, Menlo, Consolas, monospace" font-size="10" font-weight="700" fill="#6f6250">src/</text></g>
+<polygon points="719.9,341.2 893.0,441.1 893.0,425.5 719.9,325.6" fill="#e3d8c3" />
+<polygon points="979.5,391.1 893.0,441.1 893.0,425.5 979.5,375.6" fill="#d3c5a9" />
+<polygon points="806.4,275.7 979.5,375.6 893.0,425.5 719.9,325.6" fill="#fbf8f1" stroke="#c9bba2" stroke-width="1"/>
+<g transform="matrix(1.0013 0.5781 0.0000 1.1562 727.9 330.2)"><text x="0" y="9.9" font-family="ui-monospace, SF Mono, Menlo, Consolas, monospace" font-size="10" font-weight="700" fill="#6f6250">src/canvas/</text></g>
+<polygon points="937.8,456.6 1021.1,504.7 1021.1,489.2 937.8,441.1" fill="#d9ccb3" />
+<polygon points="1200.6,401.1 1021.1,504.7 1021.1,489.2 1200.6,385.6" fill="#c8b998" />
+<polygon points="1117.3,337.5 1200.6,385.6 1021.1,489.2 937.8,441.1" fill="#f7f2e8" stroke="#c9bba2" stroke-width="1"/>
+<g transform="matrix(1.0013 0.5781 0.0000 1.1562 945.8 445.7)"><text x="0" y="9.9" font-family="ui-monospace, SF Mono, Menlo, Consolas, monospace" font-size="10" font-weight="700" fill="#6f6250">ui/</text></g>
+<polygon points="1110.8,359.7 1171.7,394.8 1216.6,387.4 1155.7,352.3" fill="#000" opacity="0.10"/>
+<polygon points="1115.7,362.4 1166.9,392.0 1155.7,398.5 1104.4,368.9" fill="none" />
+<polygon points="1171.7,394.8 1173.7,393.7 1173.7,304.9 1171.7,306.0" fill="#cfc6b6" />
+<g transform="matrix(1.0013 0.5781 0.0000 1.1562 1110.8 270.9)"><rect width="61" height="77" rx="3" fill="#fbf8f1" fill-opacity="0.55" stroke="#9a907e" stroke-width="1.4" stroke-dasharray="5 4"/><text x="10" y="15" font-family="ui-monospace, SF Mono, Menlo, Consolas, monospace" font-size="10" font-weight="700" fill="#7a7466">Api.ts</text><rect x="12" y="26" width="20" height="3.5" rx="1.5" fill="#c9c9c2"/><rect x="12" y="36" width="29" height="3.5" rx="1.5" fill="#c9c9c2"/><rect x="12" y="46" width="16" height="3.5" rx="1.5" fill="#c9c9c2"/><rect x="8" y="53" width="47" height="9" fill="#fbe6e4"/><rect x="12" y="56" width="24" height="3.5" rx="1.5" fill="#c8372d"/><rect x="8" y="63" width="47" height="9" fill="#fbe6e4"/><rect x="12" y="66" width="20" height="3.5" rx="1.5" fill="#c8372d"/></g>
+<polygon points="867.3,256.1 944.2,300.5 989.1,293.1 912.2,248.7" fill="#000" opacity="0.10"/>
+<polygon points="872.1,258.8 939.4,297.7 928.2,304.2 860.9,265.3" fill="#e8e1d4" stroke="#c7bca8" stroke-width="0.8"/>
+<polygon points="944.2,300.5 946.1,299.3 946.1,180.9 944.2,182.1" fill="#cfc6b6" />
+<g transform="matrix(1.0013 0.5781 0.0000 1.1562 867.3 137.7)"><rect width="77" height="102" rx="3" fill="#ffffff" stroke="#d9d9d3" stroke-width="1"/><rect width="4" height="102" fill="#b7791f"/><text x="10" y="15" font-family="ui-monospace, SF Mono, Menlo, Consolas, monospace" font-size="10" font-weight="700" fill="#1c1c1a">graph.rs</text><rect x="12" y="26" width="40" height="3.5" rx="1.5" fill="#c9c9c2"/><rect x="12" y="36" width="28" height="3.5" rx="1.5" fill="#c9c9c2"/><rect x="8" y="43" width="63" height="9" fill="#fbe6e4"/><rect x="12" y="46" width="34" height="3.5" rx="1.5" fill="#c8372d"/><rect x="8" y="53" width="63" height="9" fill="#e3f4e9"/><rect x="12" y="56" width="45" height="3.5" rx="1.5" fill="#1f8a4c"/><rect x="8" y="63" width="63" height="9" fill="#e3f4e9"/><rect x="12" y="66" width="31" height="3.5" rx="1.5" fill="#1f8a4c"/><rect x="12" y="76" width="37" height="3.5" rx="1.5" fill="#c9c9c2"/><rect x="12" y="86" width="23" height="3.5" rx="1.5" fill="#c9c9c2"/><rect x="8" y="93" width="63" height="9" fill="#e3f4e9"/><rect x="12" y="96" width="40" height="3.5" rx="1.5" fill="#1f8a4c"/></g>
+<polygon points="950.6,315.3 1027.5,359.7 1072.4,352.3 995.5,307.9" fill="#000" opacity="0.10"/>
+<polygon points="955.4,318.0 1022.7,356.9 1011.5,363.4 944.2,324.5" fill="#e8e1d4" stroke="#c7bca8" stroke-width="0.8"/>
+<polygon points="1027.5,359.7 1029.5,358.5 1029.5,240.1 1027.5,241.3" fill="#cfc6b6" />
+<g transform="matrix(1.0013 0.5781 0.0000 1.1562 950.6 196.9)"><rect width="77" height="102" rx="3" fill="#ffffff" stroke="#d9d9d3" stroke-width="1"/><rect width="4" height="102" fill="#1f8a4c"/><text x="10" y="15" font-family="ui-monospace, SF Mono, Menlo, Consolas, monospace" font-size="10" font-weight="700" fill="#1c1c1a">layout.rs</text><rect x="12" y="26" width="34" height="3.5" rx="1.5" fill="#c9c9c2"/><rect x="8" y="33" width="63" height="9" fill="#e3f4e9"/><rect x="12" y="36" width="45" height="3.5" rx="1.5" fill="#1f8a4c"/><rect x="8" y="43" width="63" height="9" fill="#e3f4e9"/><rect x="12" y="46" width="34" height="3.5" rx="1.5" fill="#1f8a4c"/><rect x="8" y="53" width="63" height="9" fill="#e3f4e9"/><rect x="12" y="56" width="43" height="3.5" rx="1.5" fill="#1f8a4c"/><rect x="8" y="63" width="63" height="9" fill="#e3f4e9"/><rect x="12" y="66" width="28" height="3.5" rx="1.5" fill="#1f8a4c"/><rect x="8" y="73" width="63" height="9" fill="#e3f4e9"/><rect x="12" y="76" width="40" height="3.5" rx="1.5" fill="#1f8a4c"/><rect x="12" y="86" width="17" height="3.5" rx="1.5" fill="#c9c9c2"/><rect x="8" y="93" width="63" height="9" fill="#e3f4e9"/><rect x="12" y="96" width="34" height="3.5" rx="1.5" fill="#1f8a4c"/></g>
+<polygon points="1011.5,409.6 1082.0,450.3 1126.9,442.9 1056.4,402.2" fill="#000" opacity="0.10"/>
+<polygon points="1016.3,412.4 1077.2,447.5 1066.0,454.0 1005.1,418.9" fill="#e8e1d4" stroke="#c7bca8" stroke-width="0.8"/>
+<polygon points="1082.0,450.3 1083.9,449.2 1083.9,338.2 1082.0,339.3" fill="#cfc6b6" />
+<g transform="matrix(1.0013 0.5781 0.0000 1.1562 1011.5 298.6)"><rect width="70" height="96" rx="3" fill="#ffffff" stroke="#d9d9d3" stroke-width="1"/><rect width="4" height="96" fill="#7a52c7"/><text x="10" y="15" font-family="ui-monospace, SF Mono, Menlo, Consolas, monospace" font-size="10" font-weight="700" fill="#1c1c1a">Canvas.tsx</text><rect x="12" y="26" width="25" height="3.5" rx="1.5" fill="#c9c9c2"/><rect x="12" y="36" width="35" height="3.5" rx="1.5" fill="#c9c9c2"/><rect x="12" y="46" width="20" height="3.5" rx="1.5" fill="#c9c9c2"/><rect x="8" y="53" width="56" height="9" fill="#fbe6e4"/><rect x="12" y="56" width="30" height="3.5" rx="1.5" fill="#c8372d"/><rect x="8" y="63" width="56" height="9" fill="#fbe6e4"/><rect x="12" y="66" width="25" height="3.5" rx="1.5" fill="#c8372d"/><rect x="8" y="73" width="56" height="9" fill="#e3f4e9"/><rect x="12" y="76" width="35" height="3.5" rx="1.5" fill="#1f8a4c"/><rect x="12" y="86" width="30" height="3.5" rx="1.5" fill="#c9c9c2"/></g>
+<polygon points="755.2,316.4 828.9,358.9 873.7,351.5 800.0,309.0" fill="#000" opacity="0.10"/>
+<polygon points="760.0,319.1 824.1,356.1 812.8,362.6 748.8,325.6" fill="#e8e1d4" stroke="#c7bca8" stroke-width="0.8"/>
+<polygon points="828.9,358.9 830.8,357.8 830.8,254.2 828.9,255.3" fill="#cfc6b6" />
+<g transform="matrix(1.0013 0.5781 0.0000 1.1562 755.2 212.8)"><rect width="74" height="90" rx="3" fill="#ffffff" stroke="#d9d9d3" stroke-width="1"/><rect width="4" height="90" fill="#b7791f"/><text x="10" y="15" font-family="ui-monospace, SF Mono, Menlo, Consolas, monospace" font-size="10" font-weight="700" fill="#1c1c1a">edges.rs</text><rect x="12" y="26" width="27" height="3.5" rx="1.5" fill="#c9c9c2"/><rect x="12" y="36" width="38" height="3.5" rx="1.5" fill="#c9c9c2"/><rect x="12" y="46" width="21" height="3.5" rx="1.5" fill="#c9c9c2"/><rect x="8" y="53" width="60" height="9" fill="#fbe6e4"/><rect x="12" y="56" width="32" height="3.5" rx="1.5" fill="#c8372d"/><rect x="8" y="63" width="60" height="9" fill="#fbe6e4"/><rect x="12" y="66" width="27" height="3.5" rx="1.5" fill="#c8372d"/><rect x="8" y="73" width="60" height="9" fill="#e3f4e9"/><rect x="12" y="76" width="38" height="3.5" rx="1.5" fill="#1f8a4c"/></g>
+<polygon points="835.3,370.0 905.8,410.7 950.6,403.3 880.1,362.6" fill="#000" opacity="0.10"/>
+<polygon points="840.1,372.8 901.0,407.9 889.8,414.4 828.9,379.3" fill="#e8e1d4" stroke="#c7bca8" stroke-width="0.8"/>
+<polygon points="905.8,410.7 907.7,409.6 907.7,313.4 905.8,314.5" fill="#cfc6b6" />
+<g transform="matrix(1.0013 0.5781 0.0000 1.1562 835.3 273.8)"><rect width="70" height="83" rx="3" fill="#ffffff" stroke="#d9d9d3" stroke-width="1"/><rect width="4" height="83" fill="#1f8a4c"/><text x="10" y="15" font-family="ui-monospace, SF Mono, Menlo, Consolas, monospace" font-size="10" font-weight="700" fill="#1c1c1a">flow.rs</text><rect x="12" y="26" width="30" height="3.5" rx="1.5" fill="#c9c9c2"/><rect x="8" y="33" width="56" height="9" fill="#e3f4e9"/><rect x="12" y="36" width="40" height="3.5" rx="1.5" fill="#1f8a4c"/><rect x="8" y="43" width="56" height="9" fill="#e3f4e9"/><rect x="12" y="46" width="30" height="3.5" rx="1.5" fill="#1f8a4c"/><rect x="8" y="53" width="56" height="9" fill="#e3f4e9"/><rect x="12" y="56" width="38" height="3.5" rx="1.5" fill="#1f8a4c"/><rect x="8" y="63" width="56" height="9" fill="#e3f4e9"/><rect x="12" y="66" width="25" height="3.5" rx="1.5" fill="#1f8a4c"/><rect x="8" y="73" width="56" height="9" fill="#e3f4e9"/><rect x="12" y="76" width="35" height="3.5" rx="1.5" fill="#1f8a4c"/></g>
+<path id="s1" d="M944.2,227.1 Q947.4,252.5 950.6,241.9" fill="none" stroke="#3b6fd8" stroke-width="2" stroke-linecap="round" marker-end="url(#arrow)" opacity="0.9"/>
+<circle r="3.2" fill="#7aa2f7"><animateMotion dur="2.4s" begin="0.00s" repeatCount="indefinite"><mpath href="#s1"/></animateMotion></circle>
+<circle r="3.2" fill="#7aa2f7"><animateMotion dur="2.4s" begin="-1.20s" repeatCount="indefinite"><mpath href="#s1"/></animateMotion></circle>
+<path id="s2" d="M792.0,234.0 Q848.9,157.0 905.8,159.9" fill="none" stroke="#3b6fd8" stroke-width="2" stroke-linecap="round" marker-end="url(#arrow)" opacity="0.9"/>
+<circle r="3.2" fill="#7aa2f7"><animateMotion dur="2.8s" begin="0.00s" repeatCount="indefinite"><mpath href="#s2"/></animateMotion></circle>
+<circle r="3.2" fill="#7aa2f7"><animateMotion dur="2.8s" begin="-1.40s" repeatCount="indefinite"><mpath href="#s2"/></animateMotion></circle>
+<path id="s3" d="M870.5,294.2 Q929.8,206.6 989.1,219.1" fill="none" stroke="#3b6fd8" stroke-width="2" stroke-linecap="round" marker-end="url(#arrow)" opacity="0.9"/>
+<circle r="3.2" fill="#7aa2f7"><animateMotion dur="2.6s" begin="0.00s" repeatCount="indefinite"><mpath href="#s3"/></animateMotion></circle>
+<circle r="3.2" fill="#7aa2f7"><animateMotion dur="2.6s" begin="-1.30s" repeatCount="indefinite"><mpath href="#s3"/></animateMotion></circle>
+<path id="s4" d="M1011.5,340.8 Q1019.5,343.5 1027.5,286.3" fill="none" stroke="#3b6fd8" stroke-width="2" stroke-linecap="round" marker-end="url(#arrow)" opacity="0.9"/>
+<circle r="3.2" fill="#7aa2f7"><animateMotion dur="3.0s" begin="0.00s" repeatCount="indefinite"><mpath href="#s4"/></animateMotion></circle>
+<circle r="3.2" fill="#7aa2f7"><animateMotion dur="3.0s" begin="-1.50s" repeatCount="indefinite"><mpath href="#s4"/></animateMotion></circle>
+<path id="s5" d="M1046.8,319.0 Q1109.2,299.4 1171.7,339.8" fill="none" stroke="#3b6fd8" stroke-width="2" stroke-linecap="round" marker-end="url(#arrow)" opacity="0.9"/>
+<circle r="3.2" fill="#7aa2f7"><animateMotion dur="2.2s" begin="0.00s" repeatCount="indefinite"><mpath href="#s5"/></animateMotion></circle>
+<circle r="3.2" fill="#7aa2f7"><animateMotion dur="2.2s" begin="-1.10s" repeatCount="indefinite"><mpath href="#s5"/></animateMotion></circle>
+<g font-family="system-ui, -apple-system, Segoe UI, sans-serif">
+<text x="72" y="300" font-size="84" font-weight="800" fill="#ececea" letter-spacing="-2">diff<tspan fill="#e0b053">orama</tspan></text>
+<text x="76" y="352" font-size="26" fill="#a0a098">See what changed, and how it connects.</text>
+<rect x="78" y="392" width="12" height="12" rx="3" fill="#5cc98a"/>
+<text x="96" y="403" font-size="15" fill="#a0a098">added</text>
+<rect x="170" y="392" width="12" height="12" rx="3" fill="#e0b053"/>
+<text x="188" y="403" font-size="15" fill="#a0a098">modified</text>
+<rect x="280" y="392" width="12" height="12" rx="3" fill="#b195f0"/>
+<text x="298" y="403" font-size="15" fill="#a0a098">renamed</text>
+<rect x="386" y="392" width="12" height="12" rx="3" fill="#f07a70"/>
+<text x="404" y="403" font-size="15" fill="#a0a098">removed</text>
+</g>
+</svg>

@@ -1,3 +1,5 @@
+![difforama: changed files as paper cards in a diorama, joined by their dependencies](docs/banner.svg)
+
 # difforama
 
 See what changed in a git repo, and how the changes connect, on a canvas
