@@ -1,7 +1,7 @@
 # difforama
 
 See what changed in a git repo, and how the changes connect, on a canvas
-in your browser. Made for reviewing work done by coding agents.
+in your browser.
 
 ## Install
 
