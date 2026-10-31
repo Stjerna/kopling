@@ -1,22 +1,22 @@
 #!/bin/sh
-# Installs difforama from a GitHub release.
+# Installs kopling from a GitHub release.
 #
-#   curl -fsSL https://raw.githubusercontent.com/Stjerna/difforama/main/install.sh | sh
+#   curl -fsSL https://raw.githubusercontent.com/Stjerna/kopling/main/install.sh | sh
 #
 # Options, set as environment variables:
-#   DIFFORAMA_VERSION      a release tag like v0.1.0 (default: latest)
-#   DIFFORAMA_INSTALL_DIR  where to put the binary (default: ~/.local/bin)
-#   DIFFORAMA_NO_UPDATE    set to 1 to turn off self-updates
+#   KOPLING_VERSION      a release tag like v0.1.0 (default: latest)
+#   KOPLING_INSTALL_DIR  where to put the binary (default: ~/.local/bin)
+#   KOPLING_NO_UPDATE    set to 1 to turn off self-updates
 #
-# difforama updates itself once a day. Pinning a version turns that off.
+# kopling updates itself once a day. Pinning a version turns that off.
 
 set -eu
 
-repo=Stjerna/difforama
-version=${DIFFORAMA_VERSION:-latest}
-dir=${DIFFORAMA_INSTALL_DIR:-$HOME/.local/bin}
-no_update=${DIFFORAMA_NO_UPDATE:-}
-config=${XDG_CONFIG_HOME:-$HOME/.config}/difforama
+repo=Stjerna/kopling
+version=${KOPLING_VERSION:-latest}
+dir=${KOPLING_INSTALL_DIR:-$HOME/.local/bin}
+no_update=${KOPLING_NO_UPDATE:-}
+config=${XDG_CONFIG_HOME:-$HOME/.config}/kopling
 
 fail() {
   printf 'error: %s\n' "$*" >&2
@@ -26,7 +26,7 @@ fail() {
 case "$(uname -s)" in
   Linux) os=unknown-linux-gnu ;;
   Darwin) os=apple-darwin ;;
-  *) fail "no build for $(uname -s). difforama runs on Linux and macOS." ;;
+  *) fail "no build for $(uname -s). kopling runs on Linux and macOS." ;;
 esac
 
 case "$(uname -m)" in
@@ -73,7 +73,7 @@ sha256() {
 tmp=$(mktemp -d)
 trap 'rm -rf "$tmp"' EXIT
 
-file=difforama-$target.tar.gz
+file=kopling-$target.tar.gz
 printf 'Downloading %s (%s)\n' "$file" "$version"
 fetch "$base/$file" "$tmp/$file" || fail "download failed: $base/$file"
 fetch "$base/SHA256SUMS" "$tmp/SHA256SUMS" || fail "download failed: $base/SHA256SUMS"
@@ -88,15 +88,15 @@ fi
 
 tar -xzf "$tmp/$file" -C "$tmp"
 mkdir -p "$dir"
-mv "$tmp/difforama" "$dir/difforama"
-chmod 755 "$dir/difforama"
+mv "$tmp/kopling" "$dir/kopling"
+chmod 755 "$dir/kopling"
 
 # The binary isn't signed. Clear the flag macOS uses to block it.
 if [ "$os" = apple-darwin ]; then
-  xattr -d com.apple.quarantine "$dir/difforama" 2>/dev/null || true
+  xattr -d com.apple.quarantine "$dir/kopling" 2>/dev/null || true
 fi
 
-printf 'Installed %s to %s\n' "$("$dir/difforama" --version)" "$dir/difforama"
+printf 'Installed %s to %s\n' "$("$dir/kopling" --version)" "$dir/kopling"
 
 # The binary skips its daily update check while this file exists.
 if [ "$version" != latest ] || { [ -n "$no_update" ] && [ "$no_update" != 0 ]; }; then
@@ -105,7 +105,7 @@ if [ "$version" != latest ] || { [ -n "$no_update" ] && [ "$no_update" != 0 ]; }
   printf 'Self-updates are off. Run this script again without options to turn them on.\n'
 else
   rm -f "$config/no-update"
-  printf 'difforama updates itself once a day.\n'
+  printf 'kopling updates itself once a day.\n'
 fi
 
 case ":$PATH:" in

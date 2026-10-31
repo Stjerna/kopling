@@ -1,26 +1,26 @@
-![difforama: changed files as paper cards in a diorama, joined by their dependencies](docs/banner.svg)
+![kopling: changed files as paper cards, joined by their dependencies](docs/banner.svg)
 
 ## Install
 
 Linux and macOS:
 
 ```sh
-curl -fsSL https://raw.githubusercontent.com/Stjerna/difforama/main/install.sh | sh
+curl -fsSL https://raw.githubusercontent.com/Stjerna/kopling/main/install.sh | sh
 ```
 
-It updates itself once a day. Run `difforama update` to update now.
+It updates itself once a day. Run `kopling update` to update now.
 
 ## Use
 
 Run it inside a git repo:
 
 ```sh
-difforama
+kopling
 ```
 
 It opens the canvas in your browser on your uncommitted changes, so an
 agent's edits show up as it works. Use `-b main` for your branch's work,
-or `-l 1` for the last commit. Run `difforama --help` for more.
+or `-l 1` for the last commit. Run `kopling --help` for more.
 
 ## What it does
 

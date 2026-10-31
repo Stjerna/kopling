@@ -86,7 +86,7 @@
 <circle r="3.2" fill="#7aa2f7"><animateMotion dur="2.2s" begin="0.00s" repeatCount="indefinite"><mpath href="#s5"/></animateMotion></circle>
 <circle r="3.2" fill="#7aa2f7"><animateMotion dur="2.2s" begin="-1.10s" repeatCount="indefinite"><mpath href="#s5"/></animateMotion></circle>
 <g font-family="system-ui, -apple-system, Segoe UI, sans-serif">
-<text x="72" y="300" font-size="84" font-weight="800" fill="#ececea" letter-spacing="-2">diff<tspan fill="#e0b053">orama</tspan></text>
+<text x="72" y="300" font-size="84" font-weight="800" fill="#ececea" letter-spacing="-2">kop<tspan fill="#e0b053">ling</tspan></text>
 <text x="76" y="352" font-size="26" fill="#a0a098">See what changed, and how it connects.</text>
 <rect x="78" y="392" width="12" height="12" rx="3" fill="#5cc98a"/>
 <text x="96" y="403" font-size="15" fill="#a0a098">added</text>
