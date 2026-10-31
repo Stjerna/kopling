@@ -1,4 +1,4 @@
-![kopling: changed files as paper cards, joined by their dependencies](docs/banner.svg)
+![kopling: changed files as paper cards, joined by their dependencies](docs/kopling-banner.svg)
 
 ## Install
 
