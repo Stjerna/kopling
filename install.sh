@@ -1,12 +1,17 @@
 #!/bin/sh
-# Installs kopling from a GitHub release.
+# Installs kopling and its desktop app from a GitHub release.
 #
 #   curl -fsSL https://raw.githubusercontent.com/Stjerna/kopling/main/install.sh | sh
 #
 # Options, set as environment variables:
 #   KOPLING_VERSION      a release tag like v0.1.0 (default: latest)
-#   KOPLING_INSTALL_DIR  where to put the binary (default: ~/.local/bin)
+#   KOPLING_INSTALL_DIR  where to put the binaries (default: ~/.local/bin)
 #   KOPLING_NO_UPDATE    set to 1 to turn off self-updates
+#   KOPLING_BASE_URL     for testing: download from this URL instead of
+#                        the release, like http://localhost:8000
+#
+# The desktop app, kopling-desktop, goes next to kopling. Start it with
+# `kopling app`. On Linux it also gets an entry in the app launcher.
 #
 # kopling updates itself once a day. Pinning a version turns that off.
 
@@ -17,6 +22,7 @@ version=${KOPLING_VERSION:-latest}
 dir=${KOPLING_INSTALL_DIR:-$HOME/.local/bin}
 no_update=${KOPLING_NO_UPDATE:-}
 config=${XDG_CONFIG_HOME:-$HOME/.config}/kopling
+data=${XDG_DATA_HOME:-$HOME/.local/share}
 
 fail() {
   printf 'error: %s\n' "$*" >&2
@@ -46,7 +52,9 @@ if [ "$target" = aarch64-unknown-linux-gnu ]; then
   fail "no build for Linux on ARM yet."
 fi
 
-if [ "$version" = latest ]; then
+if [ -n "${KOPLING_BASE_URL:-}" ]; then
+  base=$KOPLING_BASE_URL
+elif [ "$version" = latest ]; then
   base=https://github.com/$repo/releases/latest/download
 else
   base=https://github.com/$repo/releases/download/$version
@@ -86,17 +94,59 @@ elif [ "$expected" != "$actual" ]; then
   fail "checksum mismatch for $file. Try again, or download it by hand."
 fi
 
-tar -xzf "$tmp/$file" -C "$tmp"
+mkdir "$tmp/out"
+tar -xzf "$tmp/$file" -C "$tmp/out"
+[ -f "$tmp/out/kopling" ] || fail "no kopling in $file."
 mkdir -p "$dir"
-mv "$tmp/kopling" "$dir/kopling"
+mv "$tmp/out/kopling" "$dir/kopling"
 chmod 755 "$dir/kopling"
 
-# The binary isn't signed. Clear the flag macOS uses to block it.
+# Older releases have no desktop app. Remove one a newer release left,
+# as this kopling can't start it.
+app=
+if [ -f "$tmp/out/kopling-desktop" ]; then
+  mv "$tmp/out/kopling-desktop" "$dir/kopling-desktop"
+  chmod 755 "$dir/kopling-desktop"
+  app=1
+else
+  rm -f "$dir/kopling-desktop" "$data/applications/kopling.desktop"
+fi
+
+# The binaries aren't signed. Clear the flag macOS uses to block them.
 if [ "$os" = apple-darwin ]; then
   xattr -d com.apple.quarantine "$dir/kopling" 2>/dev/null || true
+  if [ -n "$app" ]; then
+    xattr -d com.apple.quarantine "$dir/kopling-desktop" 2>/dev/null || true
+  fi
 fi
 
 printf 'Installed %s to %s\n' "$("$dir/kopling" --version)" "$dir/kopling"
+
+# On Linux, an entry in the app launcher, with the app's icon.
+if [ -n "$app" ] && [ "$os" = unknown-linux-gnu ]; then
+  if [ -f "$tmp/out/kopling.png" ]; then
+    mkdir -p "$data/icons/hicolor/256x256/apps"
+    mv "$tmp/out/kopling.png" "$data/icons/hicolor/256x256/apps/kopling.png"
+  fi
+  mkdir -p "$data/applications"
+  cat > "$data/applications/kopling.desktop" <<DESKTOP
+[Desktop Entry]
+Type=Application
+Name=kopling
+Comment=See what changed in a repo, and how the changes connect
+Exec="$dir/kopling" app
+Icon=kopling
+Terminal=false
+Categories=Development;
+StartupWMClass=kopling
+DESKTOP
+  update-desktop-database "$data/applications" >/dev/null 2>&1 || true
+fi
+
+if [ -n "$app" ]; then
+  printf 'Installed the desktop app to %s\n' "$dir/kopling-desktop"
+  printf 'Start the app with: kopling app\n'
+fi
 
 # The binary skips its daily update check while this file exists.
 if [ "$version" != latest ] || { [ -n "$no_update" ] && [ "$no_update" != 0 ]; }; then

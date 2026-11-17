@@ -8,7 +8,12 @@ Linux and macOS:
 curl -fsSL https://raw.githubusercontent.com/Stjerna/kopling/main/install.sh | sh
 ```
 
-It updates itself once a day. Run `kopling update` to update now.
+It installs `kopling` and the desktop app, `kopling-desktop`, to
+`~/.local/bin`. On Linux the app also shows in your app launcher. Both
+update themselves once a day. Run `kopling update` to update now.
+
+The desktop app is for Linux x86_64 and Apple Silicon Macs. On Linux it
+needs X11 or Wayland, and a graphics driver with Vulkan.
 
 ## Use
 
@@ -21,6 +26,15 @@ kopling
 It opens the canvas in your browser on your uncommitted changes, so an
 agent's edits show up as it works. Use `-b main` for your branch's work,
 or `-l 1` for the last commit. Run `kopling --help` for more.
+
+To use the desktop app instead of the browser, start it first:
+
+```sh
+kopling app
+```
+
+While it runs, `kopling` opens repos in the app, each in a tab of its
+own. `kopling app ~/code/web` starts it on a repo.
 
 ## What it does
 
