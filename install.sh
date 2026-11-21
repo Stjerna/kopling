@@ -11,7 +11,9 @@
 #                        the release, like http://localhost:8000
 #
 # The desktop app, kopling-desktop, goes next to kopling. Start it with
-# `kopling app`. On Linux it also gets an entry in the app launcher.
+# `kopling app`. On Linux it also gets an entry in the app launcher. On
+# macOS Kopling.app goes there too: macOS shows the app's notifications
+# only from a bundle, and `kopling app` starts that.
 #
 # kopling updates itself once a day. Pinning a version turns that off.
 
@@ -112,11 +114,29 @@ else
   rm -f "$dir/kopling-desktop" "$data/applications/kopling.desktop"
 fi
 
+# On macOS, the app as a bundle, swapped in whole. Older releases have
+# none: remove one a newer release left.
+bundle=
+if [ -d "$tmp/out/Kopling.app" ]; then
+  rm -rf "$dir/Kopling.app"
+  mv "$tmp/out/Kopling.app" "$dir/Kopling.app"
+  bundle=1
+else
+  rm -rf "$dir/Kopling.app"
+fi
+
 # The binaries aren't signed. Clear the flag macOS uses to block them.
 if [ "$os" = apple-darwin ]; then
   xattr -d com.apple.quarantine "$dir/kopling" 2>/dev/null || true
   if [ -n "$app" ]; then
     xattr -d com.apple.quarantine "$dir/kopling-desktop" 2>/dev/null || true
+  fi
+  if [ -n "$bundle" ]; then
+    xattr -dr com.apple.quarantine "$dir/Kopling.app" 2>/dev/null || true
+    # Tell macOS about it, so it can ask once whether kopling may send
+    # notifications.
+    lsregister=/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister
+    "$lsregister" -f "$dir/Kopling.app" 2>/dev/null || true
   fi
 fi
 
@@ -143,7 +163,10 @@ DESKTOP
   update-desktop-database "$data/applications" >/dev/null 2>&1 || true
 fi
 
-if [ -n "$app" ]; then
+if [ -n "$bundle" ]; then
+  printf 'Installed the desktop app to %s\n' "$dir/Kopling.app"
+  printf 'Start the app with: kopling app\n'
+elif [ -n "$app" ]; then
   printf 'Installed the desktop app to %s\n' "$dir/kopling-desktop"
   printf 'Start the app with: kopling app\n'
 fi
