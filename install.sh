@@ -6,14 +6,17 @@
 # Options, set as environment variables:
 #   KOPLING_VERSION      a release tag like v0.1.0 (default: latest)
 #   KOPLING_INSTALL_DIR  where to put the binaries (default: ~/.local/bin)
+#   KOPLING_APPS_DIR     macOS: where to put Kopling.app
+#                        (default: ~/Applications)
 #   KOPLING_NO_UPDATE    set to 1 to turn off self-updates
 #   KOPLING_BASE_URL     for testing: download from this URL instead of
 #                        the release, like http://localhost:8000
 #
 # The desktop app, kopling-desktop, goes next to kopling. Start it with
 # `kopling app`. On Linux it also gets an entry in the app launcher. On
-# macOS Kopling.app goes there too: macOS shows the app's notifications
-# only from a bundle, and `kopling app` starts that.
+# macOS Kopling.app goes to ~/Applications, where Spotlight, Launchpad
+# and Finder find it: macOS shows the app's notifications only from a
+# bundle, and `kopling app` starts that.
 #
 # kopling updates itself once a day. Pinning a version turns that off.
 
@@ -22,6 +25,7 @@ set -eu
 repo=Stjerna/kopling
 version=${KOPLING_VERSION:-latest}
 dir=${KOPLING_INSTALL_DIR:-$HOME/.local/bin}
+apps=${KOPLING_APPS_DIR:-$HOME/Applications}
 no_update=${KOPLING_NO_UPDATE:-}
 config=${XDG_CONFIG_HOME:-$HOME/.config}/kopling
 data=${XDG_DATA_HOME:-$HOME/.local/share}
@@ -114,15 +118,19 @@ else
   rm -f "$dir/kopling-desktop" "$data/applications/kopling.desktop"
 fi
 
-# On macOS, the app as a bundle, swapped in whole. Older releases have
-# none: remove one a newer release left.
+# On macOS, the app as a bundle, swapped in whole, in ~/Applications.
+# Older releases have none: remove one a newer release left. Releases up
+# to 0.28.0 put it next to kopling, where Spotlight doesn't look: that
+# one goes too.
 bundle=
+rm -rf "$dir/Kopling.app"
 if [ -d "$tmp/out/Kopling.app" ]; then
-  rm -rf "$dir/Kopling.app"
-  mv "$tmp/out/Kopling.app" "$dir/Kopling.app"
+  mkdir -p "$apps"
+  rm -rf "$apps/Kopling.app"
+  mv "$tmp/out/Kopling.app" "$apps/Kopling.app"
   bundle=1
 else
-  rm -rf "$dir/Kopling.app"
+  rm -rf "$apps/Kopling.app"
 fi
 
 # The binaries aren't signed. Clear the flag macOS uses to block them.
@@ -132,11 +140,11 @@ if [ "$os" = apple-darwin ]; then
     xattr -d com.apple.quarantine "$dir/kopling-desktop" 2>/dev/null || true
   fi
   if [ -n "$bundle" ]; then
-    xattr -dr com.apple.quarantine "$dir/Kopling.app" 2>/dev/null || true
+    xattr -dr com.apple.quarantine "$apps/Kopling.app" 2>/dev/null || true
     # Tell macOS about it, so it can ask once whether kopling may send
     # notifications.
     lsregister=/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister
-    "$lsregister" -f "$dir/Kopling.app" 2>/dev/null || true
+    "$lsregister" -f "$apps/Kopling.app" 2>/dev/null || true
   fi
 fi
 
@@ -164,7 +172,7 @@ DESKTOP
 fi
 
 if [ -n "$bundle" ]; then
-  printf 'Installed the desktop app to %s\n' "$dir/Kopling.app"
+  printf 'Installed the desktop app to %s\n' "$apps/Kopling.app"
   printf 'Start the app with: kopling app\n'
 elif [ -n "$app" ]; then
   printf 'Installed the desktop app to %s\n' "$dir/kopling-desktop"

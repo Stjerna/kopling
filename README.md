@@ -10,9 +10,11 @@ curl -fsSL https://raw.githubusercontent.com/Stjerna/kopling/main/install.sh | s
 
 It installs `kopling` and the desktop app, `kopling-desktop`, to
 `~/.local/bin`. On Linux the app also shows in your app launcher. On a
-Mac it also installs `Kopling.app` there, which `kopling app` starts:
-the app shows kopling's notifications, and macOS asks once whether it
-may. Both update themselves once a day. Run `kopling update` to update now.
+Mac it installs the app as `Kopling.app` in `~/Applications`, so
+Spotlight, Launchpad and Finder find it, and `kopling app` starts it
+too. The app shows kopling's notifications, and macOS asks once whether
+it may. Both update themselves once a day. Run `kopling update` to
+update now.
 
 The desktop app is for Linux x86_64 and Apple Silicon Macs. On Linux it
 needs X11 or Wayland, and a graphics driver with Vulkan.
